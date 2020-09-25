@@ -40,7 +40,7 @@ class SignUpPage extends Component {
       await this.props.userStore.signup(username, password);
       this.props.routerStore.push('/signin');
     } catch (error) {
-      const errorMessage = error.response.data.message;
+      const errorMessage = error.response.data.messages;
       this.setState({ errorMessage });
     }
   };
@@ -78,7 +78,7 @@ class SignUpPage extends Component {
           <p>
             Passwords must contain at least 1 upper case letter, 1 lower case letter and one number OR special charracter.
           </p>
-          <hr/>
+          <hr />
           <div>
             <Button
               fullWidth

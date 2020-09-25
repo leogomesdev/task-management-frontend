@@ -40,7 +40,7 @@ class CreateTaskPage extends Component {
       await tasksStore.createTask(title, description);
       routerStore.push('/tasks');
     } catch (error) {
-      const errorMessage = error.response.data.message;
+      const errorMessage = error.response.data.messages;
       this.setState({ errorMessage });
     }
   };
@@ -52,7 +52,7 @@ class CreateTaskPage extends Component {
           <h1>Create a new task</h1>
           <p>Provide information about the task you wish to complete.</p>
 
-          { this.state.errorMessage && <ErrorMessage message={this.state.errorMessage} />}
+          {this.state.errorMessage && <ErrorMessage message={this.state.errorMessage} />}
 
           <FormControl fullWidth>
             <TextField
